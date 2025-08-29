@@ -21,7 +21,7 @@ pipeline {
         password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
     } */
 	stages {
-        stage('Read package.json') {
+        stage('Read package.json'){
             steps {
                 script {
                     // Read the package.json file
@@ -33,7 +33,7 @@ pipeline {
                 }
             }
         }
-		stage('Build') {
+		stage('Build'){
 			steps {
 				script {
                     sh """
@@ -41,28 +41,6 @@ pipeline {
                         sleep 10
                         env
                     """
-                }
-			}
-		}
-		stage('Test') {
-            input {
-                message "Should we continue?"
-                ok "Yes, we should."
-                submitter "alice,bob"
-                parameters {
-                    string(name: 'PERSON', defaultValue: 'M Charan', description: 'Who should I say hello to?')
-                }
-            }
-			steps {
-				script {
-                    echo "Hello ${PERSON}, nice to meet you."
-                }
-			}
-		}
-		stage('Deploy') {
-			steps {
-				script {
-                    sh 'echo Deploying'
                 }
 			}
 		}
