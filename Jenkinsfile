@@ -77,7 +77,7 @@ pipeline {
                     build job: 'catalogue-cd', // Replace 'DownstreamJobName' with the actual name of your downstream job
                     parameters: [
                         string(name: 'appVersion', value: "${appVersion}"),
-                        choice(name: 'deploy_to', value: "dev")
+                        string(name: 'deploy_to', value: "dev")
                         ],
                     propagate: true,
                     wait: true 
