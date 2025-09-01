@@ -74,7 +74,7 @@ pipeline {
                 }
 			steps {
 				script {
-                    build job: 'catalogue-cd', // Replace 'DownstreamJobName' with the actual name of your downstream job
+                    build job: '01-catalogue-cd', // Replace 'DownstreamJobName' with the actual name of your downstream job
                     parameters: [
                         string(name: 'appVersion', value: "${appVersion}"),
                         string(name: 'deploy_to', value: "dev")
@@ -98,4 +98,4 @@ pipeline {
             echo 'I will always say failure!'
         }
     }
-} 
+}
